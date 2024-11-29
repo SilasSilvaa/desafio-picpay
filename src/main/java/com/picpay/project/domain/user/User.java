@@ -1,5 +1,6 @@
 package com.picpay.project.domain.user;
 
+import com.picpay.project.dtos.UserDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,4 +38,13 @@ public class User {
     private UserType userType;
 
 
+    public User(UserDTO userDTO){
+        this.firstName = userDTO.firstName();
+        this.lastName = userDTO.lastName();
+        this.document = userDTO.document();
+        this.email = userDTO.email();
+        this.password = userDTO.password();
+        this.balance = userDTO.balance();
+        userType = userDTO.userType();
+    }
 }
